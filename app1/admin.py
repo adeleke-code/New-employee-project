@@ -4,3 +4,4 @@ from .models import Branch
 
 # Register your models here.
 admin.site.register(Employee)
+admin.site.register(Branch)

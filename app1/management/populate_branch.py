@@ -1,6 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
 import faker
-from app1.models import Employee
 from app1.models import Branch
 from faker import Faker
 from django.contrib.auth.models import User
@@ -19,12 +18,11 @@ class Command(BaseCommand):
             Branch.objects.create(
                 branch_name = fake.name(),
                 location = fake.country(),
-                branch_id = fake.random_number(digits=6),
                 supervisor = user,
-
+                branch_id = fake.random_number(digits=6),
 
                 )
 
-        self.stdout.write(self.style.SUCCESS('Successfully created new branches'))
+        #self.stdout.write(self.style.SUCCESS('Successfully created new branches'))
 
 

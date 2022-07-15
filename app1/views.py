@@ -51,13 +51,13 @@ def employee(request):
 def branch(request):
     if request.method == "GET":
 
-        all_branchs = Branch.objects.all()
+        all_branch = Branch.objects.all()
         
-        serializer = BranchSerializer(all_branchs, many=True)
+        serializer = BranchSerializer(all_branch, many=True)
 
         data = {
             "message" : "success",
-            "data_count" : len(all_branchs),
+            "data_count" : len(all_branch),
             "data" : serializer.data,
         }
 
