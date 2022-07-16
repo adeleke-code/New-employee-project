@@ -23,6 +23,6 @@ class Command(BaseCommand):
 
                 )
 
-        #self.stdout.write(self.style.SUCCESS('Successfully created new branches'))
+        self.stdout.write(self.style.SUCCESS('Successfully created new branches'))
 
 
