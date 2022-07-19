@@ -2,9 +2,10 @@ from django.core.management.base import BaseCommand, CommandError
 import faker
 from app1.models import Branch
 from faker import Faker
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 import random
 
+User = get_user_model()
 class Command(BaseCommand):
     help = 'Create Branch objects'
 
