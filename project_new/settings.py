@@ -135,3 +135,13 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = 'account.CustomUser'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = "Femi from Bamboo <noreply@bamboo.com>"
+
+
+EMAIL_HOST = os.getenv("EMAIL_HOST")
+EMAIL_PORT = 25
+EMAIL_HOST_USER = os.getenv("EMAIL_PASSWORD")
+EMAIL_USE_TLS = True
