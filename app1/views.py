@@ -175,34 +175,34 @@ class BranchDetailView(APIView):
 
         return Response(data, status-status.HTTP_200_OK)
 
-@swagger_auto_schema(method="put", request_body=BranchSerializer())
-@action(methods=["put"], detail=True)
-def put(self, request, employee_id, format=None):
-    """"API view to edit branches"""
-    obj = self.get_object(employee_id)
-    serializer = BranchSerializer(obj, data=request.data, partial=True)
+    @swagger_auto_schema(method="put", request_body=BranchSerializer())
+    @action(methods=["put"], detail=True)
+    def put(self, request, employee_id, format=None):
+        """"API view to edit branches"""
+        obj = self.get_object(employee_id)
+        serializer = BranchSerializer(obj, data=request.data, partial=True)
 
-    if serializer.is_valid():
-        if "branch_id" in serializer.validated_data.keys():
-            raise PermissionDenied(detail={"message":"You can not edit your branch_id"}, code=status.HTTP_403_FORBIDDEN)
+        if serializer.is_valid():
+            if "branch_id" in serializer.validated_data.keys():
+                raise PermissionDenied(detail={"message":"You can not edit your branch_id"}, code=status.HTTP_403_FORBIDDEN)
             
-        serializer.save()
-        data = {
-            "message":"success"
+            serializer.save()
+            data = {
+                "message":"success"
   
-        }
-        return Response(data, status=status.HTTP_202_ACCEPTED)
+            }
+            return Response(data, status=status.HTTP_202_ACCEPTED)
 
-    else:
-        data = {
-            "message":"failed",
-            "error":serializer.errors
-        }
-        return Response(data, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            data = {
+                "message":"failed",
+                "error":serializer.errors
+            }
+            return Response(data, status=status.HTTP_400_BAD_REQUEST)
 
-def delete(self, request, branch_id, format=None):
-    """Delete a branch"""
-    obj = self.get_object(branch_id)
-    obj.delete()
-    return Response({}, status=status.HTTP_204_NO_CONTENT)
+    def delete(self, request, branch_id, format=None):
+        """Delete a branch"""
+        obj = self.get_object(branch_id)
+        obj.delete()
+        return Response({}, status=status.HTTP_204_NO_CONTENT)
 

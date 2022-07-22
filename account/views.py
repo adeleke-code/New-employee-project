@@ -65,3 +65,5 @@ class UserListCreateView(APIView):
                 "error":serializer.errors
             }
             return Response(data, status=status.HTTP_400_BAD_REQUEST)
+
+            

@@ -12,7 +12,7 @@ def send_confirmation_email(sender, instance, created, **kwargs):
 Your account has been successfully created and activated. Your username is {instance.username}.
 
 Cheers,
-Femi Femo
+Fintech Insurance
 """     
         subject = "Welcome to FemoPay"
         send_mail(subject=subject,
